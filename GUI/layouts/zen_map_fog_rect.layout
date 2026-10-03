@@ -1,0 +1,10 @@
+PanelWidgetClass ZenMapFogRect {
+	ignorepointer 1
+	style rover_sim_colorable
+	position 0 0
+	size 1 1
+	hexactpos 1
+	vexactpos 1
+	hexactsize 1
+	vexactsize 1
+}
