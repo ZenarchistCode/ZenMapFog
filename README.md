@@ -28,7 +28,7 @@ Defaults below match the current source. Toggles use **1 = on / 0 = off**; `Rese
 |---|---|---|
 | `Enabled` | `1` | Enables map fog and exploration. |
 | `CellSizeMeters` | `500.0` | Width of each exploration square in metres. Changing this resets saved exploration. |
-| `RevealRadiusCells` | `0` | Extra squares revealed around the player: 0 = current square; 1 = 3 ? 3 area. |
+| `RevealRadiusCells` | `0` | Extra squares revealed around the player: 0 = current square; 1 = 3 x 3 area. |
 | `BoundaryRevealTolerancePercent` | `20.0` | Reveals neighbouring squares near an edge; 0 disables. Range: 0?49.9%. |
 | `TrackingIntervalSeconds` | `1.0` | Seconds between player-position checks. Minimum: 0.1. |
 | `ResetMapFogOnDeath` | `false` | Clears a player's discoveries, including full-map reveals, when they die. |
