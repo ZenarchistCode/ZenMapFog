@@ -15,6 +15,16 @@ modded class ZenAdminCommandHandler
 			return true;
 		}
 
+		if (cmd == "hidemap")
+		{
+			if (ZenMapFogServerManager.Get().HideEntireMap(player))
+				SendMsg(player, "Reset the entire map to full fog.");
+			else
+				SendMsg(player, "Map fog reset failed: feature disabled or player unavailable.");
+
+			return true;
+		}
+
 		if (cmd == "mapfogheight")
 		{
 			vector heightPosition = player.GetPosition();

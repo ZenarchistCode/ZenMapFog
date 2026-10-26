@@ -18,6 +18,12 @@ Fog of war for DayZ maps. Players uncover the map as they explore, with progress
 
 Expansion Navigation support activates when installed. **ZenModCore is optional** and enables the admin commands below.
 
+## Pristine map item
+
+`ZenMapFogRevealer` is an ordinary inventory item using the vanilla Chernarus map model and appears as **Pristine map**. Hold it in your hands and complete the **Read** action for **10 seconds** to reveal all fog for yourself on the current terrain. Completing the reveal ruins the item (health 0), preventing anyone else from reading it. Cancelling early leaves the item and your fog unchanged. It does not offer the normal unfold-map action.
+
+The reveal uses the existing saved exploration system and follows the configured death and storage-wipe resets. Add `ZenMapFogRevealer` to your server loot configuration or spawn it through your admin tools.
+
 ## Configuration
 
 Defaults below match the current source. Toggles use **1 = on / 0 = off**; `ResetMapFogOnDeath` uses `true` / `false`. Colour and opacity values use **0?255**, with opacity 0 transparent and 255 opaque.

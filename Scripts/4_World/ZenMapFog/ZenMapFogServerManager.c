@@ -330,6 +330,31 @@ class ZenMapFogServerManager
 		return true;
 	}
 
+	bool HideEntireMap(PlayerBase player)
+	{
+		if (!g_Game.IsServer() || !player)
+			return false;
+
+		if (!m_Initialized)
+			Init();
+
+		if (!m_Config.Enabled || m_ConfigLoadFailed)
+			return false;
+
+		PlayerIdentity identity = player.GetIdentity();
+		if (!identity)
+			return false;
+
+		ZenMapFogPlayerData data = GetPlayerData(player);
+		if (!data)
+			return false;
+
+		ResetPlayerDiscovery(data);
+		SyncPlayerMapFog(player, identity);
+
+		return true;
+	}
+
 	protected void LoadConfig()
 	{
 		m_Config = new ZenMapFogConfig;
