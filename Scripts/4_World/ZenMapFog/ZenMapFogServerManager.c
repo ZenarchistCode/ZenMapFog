@@ -234,6 +234,14 @@ class ZenMapFogServerManager
 		if (!g_Game.IsServer() || !player)
 			return 0;
 
+#ifdef TerjeStartScreen
+		if (player.HasActiveTerjeStartScreen() || (player.GetTerjeStats() && player.GetTerjeStats().IsStartScreenInProgress()))
+		{
+			return 0;
+		}
+
+#endif
+
 		if (!m_Initialized)
 			Init();
 
@@ -299,6 +307,14 @@ class ZenMapFogServerManager
 	{
 		if (!g_Game.IsServer() || !player)
 			return false;
+
+#ifdef TerjeStartScreen
+		if (player.HasActiveTerjeStartScreen() || (player.GetTerjeStats() && player.GetTerjeStats().IsStartScreenInProgress()))
+		{
+			return false;
+		}
+
+#endif
 
 		if (!m_Initialized)
 			Init();
@@ -651,6 +667,15 @@ class ZenMapFogServerManager
 			PlayerBase player = PlayerBase.Cast(man);
 			if (!player || !player.GetIdentity() || !player.IsAlive())
 				continue;
+
+#ifdef TerjeStartScreen
+			// Skip exploration and height bonuses while spawning, including interrupted spawn restoration.
+			if (player.HasActiveTerjeStartScreen() || (player.GetTerjeStats() && player.GetTerjeStats().IsStartScreenInProgress()))
+			{
+				continue;
+			}
+
+#endif
 
 			RevealPositionIfChanged(player, player.GetPosition());
 			CheckPlayerHeightReveal(player);
